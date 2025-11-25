@@ -1,7 +1,23 @@
 import { Button } from "@/components/ui/button";
 import heroBurger from "@/assets/hero-burger.jpg";
+import { toast } from "sonner";
 
 const Hero = () => {
+  const handleOrderNow = () => {
+    toast.success("Let's get you that burger! Check out our menu below.");
+    const menuSection = document.getElementById("menu");
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleViewMenu = () => {
+    const menuSection = document.getElementById("menu");
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div 
@@ -22,6 +38,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <Button 
               size="lg" 
+              onClick={handleOrderNow}
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-warm-glow transition-all hover:scale-105"
             >
               Order Now
@@ -29,6 +46,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline"
+              onClick={handleViewMenu}
               className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent transition-all hover:scale-105"
             >
               View Menu
