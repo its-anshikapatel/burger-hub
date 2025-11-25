@@ -32,10 +32,10 @@ const FeedbackForm = () => {
   };
 
   return (
-    <section className="py-20 bg-muted">
+    <section id="feedback" className="py-20 bg-muted">
       <div className="container px-4">
-        <div className="max-w-2xl mx-auto">
-          <Card className="border-2">
+        <div className="max-w-2xl mx-auto animate-fade-in">
+          <Card className="border-2 hover:shadow-warm-glow transition-all duration-300">
             <CardHeader className="text-center">
               <CardTitle className="text-4xl font-bold text-foreground mb-2">
                 Share Your Experience

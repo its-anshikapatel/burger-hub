@@ -35,9 +35,9 @@ const menuItems = [
 
 const Menu = () => {
   return (
-    <section className="py-20 bg-muted">
+    <section id="menu" className="py-20 bg-muted">
       <div className="container px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Menu
           </h2>
@@ -50,7 +50,8 @@ const Menu = () => {
           {menuItems.map((item, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-warm-glow transition-all duration-300 hover:scale-105 border-2"
+              className="hover:shadow-warm-glow transition-all duration-300 hover:scale-105 border-2 animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground">{item.name}</CardTitle>
