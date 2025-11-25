@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChefHat } from "lucide-react";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleOrderNow = () => {
+    toast.success("Let's get you that burger! Check out our menu below.");
+    scrollToSection("menu");
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -42,7 +48,7 @@ const Navbar = () => {
             <button onClick={() => scrollToSection("timeline")} className="text-foreground hover:text-primary transition-colors">
               Timeline
             </button>
-            <Button className="bg-primary hover:bg-primary/90 shadow-warm-glow">Order Now</Button>
+            <Button onClick={handleOrderNow} className="bg-primary hover:bg-primary/90 shadow-warm-glow">Order Now</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,7 +79,7 @@ const Navbar = () => {
               <button onClick={() => scrollToSection("timeline")} className="text-foreground hover:text-primary transition-colors text-left">
                 Timeline
               </button>
-              <Button className="bg-primary hover:bg-primary/90 w-full">Order Now</Button>
+              <Button onClick={handleOrderNow} className="bg-primary hover:bg-primary/90 w-full">Order Now</Button>
             </div>
           </div>
         )}

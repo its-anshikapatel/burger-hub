@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Smile, Frown, Meh, Heart, Zap, Coffee } from "lucide-react";
+import { toast } from "sonner";
 
 const moods = [
   { 
@@ -51,6 +52,16 @@ const moods = [
 const MoodMatch = () => {
   const [selectedMood, setSelectedMood] = useState<number | null>(null);
 
+  const handleOrderBurger = () => {
+    if (selectedMood !== null) {
+      toast.success(`Great choice! ${moods[selectedMood].recommendation} is on its way to your cart!`);
+      const menuSection = document.getElementById("menu");
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <section id="mood-match" className="py-20 bg-background">
       <div className="container px-4">
@@ -95,7 +106,7 @@ const MoodMatch = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <Button className="bg-primary hover:bg-primary/90 shadow-warm-glow">
+              <Button onClick={handleOrderBurger} className="bg-primary hover:bg-primary/90 shadow-warm-glow">
                 Order This Burger
               </Button>
             </CardContent>
